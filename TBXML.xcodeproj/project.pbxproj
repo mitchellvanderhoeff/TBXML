@@ -30,6 +30,10 @@
 		829FA0D014D5B55D00D18697 /* TBXML+Compression.m in Sources */ = {isa = PBXBuildFile; fileRef = 829FA0C914D5B55D00D18697 /* TBXML+Compression.m */; };
 		829FA0D114D5B55D00D18697 /* TBXML+HTTP.m in Sources */ = {isa = PBXBuildFile; fileRef = 829FA0CA14D5B55D00D18697 /* TBXML+HTTP.m */; };
 		829FA0D214D5B55D00D18697 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 829FA0CB14D5B55D00D18697 /* TBXML.m */; };
+		829FA0D214D5B55D00D18699 /* TBXMLParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 829FA0D214D5B55D00D18698 /* TBXMLParser.h */; };
+		829FA0D214D5B55D00D1869B /* TBXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 829FA0D214D5B55D00D1869A /* TBXMLParser.m */; };
+		829FA0D214D5B55D00D1869D /* PropertyMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 829FA0D214D5B55D00D1869C /* PropertyMap.h */; };
+		829FA0D214D5B55D00D1869F /* PropertyMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 829FA0D214D5B55D00D1869E /* PropertyMap.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +77,10 @@
 		829FA0CD14D5B55D00D18697 /* TBXML+Compression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TBXML+Compression.h"; sourceTree = "<group>"; };
 		829FA0CE14D5B55D00D18697 /* TBXML+HTTP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TBXML+HTTP.h"; sourceTree = "<group>"; };
 		829FA0CF14D5B55D00D18697 /* TBXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBXML.h; sourceTree = "<group>"; };
+		829FA0D214D5B55D00D18698 /* TBXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBXMLParser.h; sourceTree = "<group>"; };
+		829FA0D214D5B55D00D1869A /* TBXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBXMLParser.m; sourceTree = "<group>"; };
+		829FA0D214D5B55D00D1869C /* PropertyMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropertyMap.h; sourceTree = "<group>"; };
+		829FA0D214D5B55D00D1869E /* PropertyMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropertyMap.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +161,7 @@
 				8290355714D9F8BF00ACF7E4 /* TBXML-Tests */,
 				829FA09E14D5B52A00D18697 /* Frameworks */,
 				829FA09D14D5B52A00D18697 /* Products */,
+				829FA0D214D5B55D00D186A0 /* TBXML-Extension */,
 			);
 			sourceTree = "<group>";
 		};
@@ -208,6 +217,17 @@
 			path = "TBXML-Headers";
 			sourceTree = "<group>";
 		};
+		829FA0D214D5B55D00D186A0 /* TBXML-Extension */ = {
+			isa = PBXGroup;
+			children = (
+				829FA0D214D5B55D00D18698 /* TBXMLParser.h */,
+				829FA0D214D5B55D00D1869C /* PropertyMap.h */,
+				829FA0D214D5B55D00D1869E /* PropertyMap.m */,
+				829FA0D214D5B55D00D1869A /* TBXMLParser.m */,
+			);
+			path = "TBXML-Extension";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -225,6 +245,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				829FA0D214D5B55D00D18699 /* TBXMLParser.h in Headers */,
+				829FA0D214D5B55D00D1869D /* PropertyMap.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,6 +430,8 @@
 				829FA0D014D5B55D00D18697 /* TBXML+Compression.m in Sources */,
 				829FA0D114D5B55D00D18697 /* TBXML+HTTP.m in Sources */,
 				829FA0D214D5B55D00D18697 /* TBXML.m in Sources */,
+				829FA0D214D5B55D00D1869B /* TBXMLParser.m in Sources */,
+				829FA0D214D5B55D00D1869F /* PropertyMap.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
