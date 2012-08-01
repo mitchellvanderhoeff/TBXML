@@ -1,5 +1,5 @@
 //
-// Created by mitch on 7/31/12.
+// Created by Mitchell Vanderhoeff on 7/31/12.
 //
 // Source: http://stackoverflow.com/questions/754824/get-an-object-attributes-list-in-objective-c
 //

@@ -1,7 +1,6 @@
 //
-// Created by mitch on 7/29/12.
+// Created by mitchellvanderhoeff on 7/29/12.
 //
-// To change the template use AppCode | Preferences | File Templates.
 //
 
 
@@ -11,18 +10,27 @@
 @implementation TBXMLParser
 
 /*!
-    @function populateXMLMessageWrapper:withXMLString:withPathFromRoot:
-    @param xmlMessageWrapper
-     The wrapper that needs to be populated.
+    @function populateXMLWrapper:withXMLString:withPathFromRoot:
+    @abstract Populates an XML wrapper with an XML string recursively and unknowing of the properties of that wrapper.
+    @discussion This function traverses the path, finds the base element and then recursively loops through all the child elements.
+     During this process, each element tries to
+      1) instantiate any classes it can find in the element names. If the element name itself is not a class name, it will try to infer the class from the XML wrapper class.
+      2) try to set itself as the value of its parent object's property. If the parent is an array or a dictionary, it will try to add itself to its parent object instead.
+     This way, you can nest as many elements as you want in the XML. Elements don't need to be properties of the parent object, all that happens is an 'INVALID' log message.
+
+
+    @param xmlWrapper
+     The wrapper that needs to be populated. Its properties can only be of the following types:
+     NSString, NSArray, NSMutableArray, NSDictionary, NSMutableDictionary, or another XML wrapper containing these types.
     @param xmlString
-     The XML string that is to be parsed. This string must contain elements with names identical to the property names of xmlMessageWrapper.
+     The XML string that is to be parsed. This string must contain elements with names identical to the property names of xmlWrapper.
      Types are inferred and therefore don't need to be passed in the string.
     @param pathFromRoot
-
+     This path must lead to the element that contains properties, which the method will use to populate the xmlWrapper.
  */
 
-+ (void)populateXMLMessageWrapper:(id)xmlMessageWrapper withXMLString:(NSString *)xmlString withPathFromRoot:(NSString *)pathFromRoot {
-    NSLog(@"--> Parsing for XML Message Wrapper %@ started. Path from root: '%@'.", xmlMessageWrapper, pathFromRoot);
++ (void)populateXMLWrapper:(id)xmlWrapper withXMLString:(NSString *)xmlString withPathFromRoot:(NSString *)pathFromRoot {
+    NSLog(@"--> Parsing for XML Message Wrapper %@ started. Path from root: '%@'.", xmlWrapper, pathFromRoot);
     TBXML* tbxml = [TBXML newTBXMLWithXMLString:xmlString error:nil];
     TBXMLElement *rootElement = [tbxml rootXMLElement];
 
@@ -34,14 +42,14 @@
                        fromElement:rootElement
                          withBlock:^(TBXMLElement *element) {
                              elementFound = YES;
-                             [self populateObject:xmlMessageWrapper fromTBXMLElement:element];
+                             [self populateObject:xmlWrapper fromTBXMLElement:element];
                          }];
     if (!elementFound) {
         NSLog(@"ERROR: Element not found. Check your path (%@).", pathFromRoot);
         return;
     }
 
-    NSLog(@"--> Parsing for XML Message Wrapper %@ finished", xmlMessageWrapper);
+    NSLog(@"--> Parsing for XML Message Wrapper %@ finished", xmlWrapper);
 
 
 }
